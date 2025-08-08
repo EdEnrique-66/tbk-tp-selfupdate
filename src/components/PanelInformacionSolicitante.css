@@ -1,0 +1,31 @@
+.panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.panel p {
+  color: #333; /* Color oscuro para el texto de los datos */
+  margin: 0;
+  font-size: 16px;
+}
+
+.panel label {
+  color: #666; /* Color un poco más claro para las etiquetas */
+}

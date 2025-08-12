@@ -14,7 +14,7 @@ const PanelMaquinas = ({ maquinas }) => {
               <input
                 type="checkbox"
                 checked={maquina.tieneAcceso}
-                disabled
+                enabled
               />
               <p>{maquina.nombre}</p>
             </label>

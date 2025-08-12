@@ -13,7 +13,7 @@ const PanelGrupos = ({ grupos }) => {
             <label>
               <input
                 type="checkbox"
-                disabled
+                enabled
               />
               <p>{grupo.nombre}</p>
             </label>

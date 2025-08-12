@@ -82,9 +82,9 @@ const PanelDxc = ({ formData }) => {
   return (
     <div className="panel dxc-panel">
       <div className="dxc-header">
-        <h3>Información Adicional (DXC)</h3>
+        <h3>Información Adicional Usuario</h3>
         <div className="id-solicitante-display">
-          <label>ID solicitante:</label>
+          <label>ID Usuario:</label>
           <span>{idSolicitante}</span>
         </div>
       </div>

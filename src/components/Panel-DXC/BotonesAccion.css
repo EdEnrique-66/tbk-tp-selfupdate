@@ -1,0 +1,41 @@
+.boton-alta {
+  background-color: #add8e6; /* azul claro */
+  border: 1px solid #4682b4; /* azul más oscuro */
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.boton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Estilo para botón de alta */
+.alta {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Estilo para botón de traer */
+.modificar {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Estilo para botón de eliminar */
+.baja {
+  background-color: #f44336;
+  color: white;
+}
+
+.boton:hover {
+  opacity: 0.85;
+}

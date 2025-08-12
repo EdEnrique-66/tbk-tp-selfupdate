@@ -17,23 +17,41 @@
 .campoDxc:nth-child(1)
 {
   grid-row: 1;
-  grid-column: span 5; /* cada uno ocupa 5 columnas */
+  grid-column: span 2; /* cada uno ocupa 5 columnas */
 }
 
-.campoDxc:nth-child(2),
-.campoDxc:nth-child(3),
-.campoDxc:nth-child(4),
-.campoDxc:nth-child(5)  
+.campoDxc:nth-child(2)  
+{/*boton alta*/
+  grid-row: 1;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+.campoDxc:nth-child(3)  
+{/*boton modificar*/
+  grid-row: 1;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+.campoDxc:nth-child(4)  
+{ /*boton baja*/
+  grid-row: 1;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+.campoDxc:nth-child(5),
+.campoDxc:nth-child(6),
+.campoDxc:nth-child(7),
+.campoDxc:nth-child(8)  
 {
   grid-row: 2;
   grid-column: span 1; /* cada uno ocupa una columna */
 }
 
-.campoDxc:nth-child(6),
-.campoDxc:nth-child(7),
-.campoDxc:nth-child(8),
 .campoDxc:nth-child(9),
-.campoDxc:nth-child(10)
+.campoDxc:nth-child(10),
+.campoDxc:nth-child(11),
+.campoDxc:nth-child(12),
+.campoDxc:nth-child(13)
 {
   grid-row: 3;
   grid-column: span 1; /* cada uno ocupa una columna */

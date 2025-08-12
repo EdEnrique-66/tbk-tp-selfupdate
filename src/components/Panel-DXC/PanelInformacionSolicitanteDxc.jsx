@@ -1,6 +1,7 @@
 // src/components/Panel-DXC/PanelInformacionSolicitanteDxc.jsx
 import React from 'react';
 import './PanelInformacionSolicitanteDxc.css';
+import Boton from './BotonesAccion'; 
 
 const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
   if (!datosUsuario) return null;
@@ -10,6 +11,15 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
       <div className="campoDxc">
         <label>ID Solicitante:</label>
         <p>{idSolicitante}</p>
+      </div>
+      <div className="campoDxc botonAlta">  
+        <Boton nombre="alta" tipoAccion="alta" />
+      </div>
+      <div className="campoDxc botonModificar">  
+        <Boton nombre="modificar" tipoAccion="modificar" />
+      </div>
+      <div className="campoDxc botonBaja">
+        <Boton nombre="Carolaine" tipoAccion="baja" />
       </div>
       <div className="campoDxc">
         <label>Primer Nombre:</label>

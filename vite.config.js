@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'jsdom', // Configura el entorno de pruebas para simular un navegador
-    globals: true, // Permite usar funciones de Vitest (como `describe`, `it`, `expect`) sin importarlas
+    globals: true, // Permite usar funciones de Vitest (como `describe`, `it`, `expect`) sin  
     setupFiles: './src/setupTests.js' 
   },
 });

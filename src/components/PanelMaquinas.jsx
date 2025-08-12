@@ -1,11 +1,12 @@
 // src/components/PanelMaquinas.jsx
 import React from 'react';
+import './PanelMaquinas.css'; // Importa el CSS aquí
 
 const PanelMaquinas = ({ maquinas, equipo }) => {
   if (!maquinas || maquinas.length === 0) return null;
 
   return (
-    <div>
+    <div className="panel"> {/* Puedes usar una clase para el estilo del panel */}
       <h3>Acceso a Máquinas/Servidores</h3>
       <p>Equipo: {equipo}</p>
       {maquinas.map(maquina => (

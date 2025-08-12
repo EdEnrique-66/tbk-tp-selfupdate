@@ -1,0 +1,27 @@
+/* src/components/PanelGrupos.css */
+.panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.panel h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.grupos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.grupo-item p {
+  color: #333;
+  background-color: #e3f2fd; /* Azul claro para los campos */
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0;
+}

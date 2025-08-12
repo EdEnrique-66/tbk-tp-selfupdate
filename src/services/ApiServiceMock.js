@@ -35,6 +35,14 @@ const mockDataTBK = {
 // Datos simulados para el caso "DXC" (solo los campos que se traerán de forma asíncrona)
 const mockDataDXC = {
   informacionSolicitante: {
+
+    /*datos mock para modificar y baja*/
+    primerNombreDxc: "Adrian",
+    segundoNombreDxc: "Francisco",
+    primerApellidoDxc: "Orellana",
+    segundoApellidoDxc: "Orellana",
+    rutDxc: "19.671.981-9",
+
     empresa: "DXC",
     subtipo: "DXC",
     fechaBaja: "20/05/2030",

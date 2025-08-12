@@ -52,7 +52,3 @@ function Boton({ nombre, tipoAccion }) {
 }
 
 export default Boton;
-
-
-
-

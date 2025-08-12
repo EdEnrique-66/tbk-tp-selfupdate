@@ -14,6 +14,17 @@ const mockData = {
     fechaBaja: "20/05/2030",
     equipo: "SRE",
     seHeredaDelHost: true,
+
+    primerNombreDxc: "Pedro",
+    segundoNombreDxc: "Pablo",
+    primerApellidoDxc: "Veliz",
+    segundoApellidoDxc: "Guerrero",
+    rutDxc: "17.671.981-9",
+    empresaDxc: "DXC",
+    subtipoDxc: "DXC",
+    correoDxc: "pedro.v.guerrero@dxc.com",
+    fechaBajaDxc: "20/05/2030",
+
   },
 };
 

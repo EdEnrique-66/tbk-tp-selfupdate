@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import useApiData from '../hooks/useApiData';
 // Importamos el servicio mock
-import ApiServiceMock from './services/ApiServiceMock.js'; 
-import PanelInformacionSolicitante from './PanelInformacionSolicitante.jsx';
+import ApiServiceMock from '../services/ApiServiceMock.js'; 
+import PanelInformacionSolicitante from './Panel-Transbank/PanelInformacionSolicitante.jsx';
+import PanelInformacionSolicitanteDxc from './Panel-DXC/PanelInformacionSolicitanteDxc.jsx';
 import './Formulario.css';
 
 // Creamos una instancia del servicio mock fuera del componente
@@ -17,8 +18,8 @@ const Formulario = () => {
     <div className="formulario-container">
       <h2>self service</h2>
 
-      <div>
-        <label>ID solicitante:</label>
+      <div className="id-solicitante">
+        <label className="label-id-solicitante">ID solicitante:</label>
         <input
           type="text"
           value={idSolicitante}
@@ -31,6 +32,7 @@ const Formulario = () => {
       {userError && <p className="error">Error: {userError}</p>}
       
       {datosUsuario && <PanelInformacionSolicitante datosUsuario={datosUsuario} />}
+      {datosUsuario && <PanelInformacionSolicitanteDxc  datosUsuario={datosUsuario} idSolicitante={idSolicitante} />}
     </div>
   );
 };

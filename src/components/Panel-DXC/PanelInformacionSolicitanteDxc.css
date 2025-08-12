@@ -1,0 +1,57 @@
+.panelDxc {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.campoDxc {
+  display: flex;
+/*  flex-direction: column; */
+}
+
+.campoDxc:nth-child(1)
+{
+  grid-row: 1;
+  grid-column: span 5; /* cada uno ocupa 5 columnas */
+}
+
+.campoDxc:nth-child(2),
+.campoDxc:nth-child(3),
+.campoDxc:nth-child(4),
+.campoDxc:nth-child(5)  
+{
+  grid-row: 2;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+.campoDxc:nth-child(6),
+.campoDxc:nth-child(7),
+.campoDxc:nth-child(8),
+.campoDxc:nth-child(9),
+.campoDxc:nth-child(10)
+{
+  grid-row: 3;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+.campoDxc label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.panelDxc p {
+  color: #333; /* Color oscuro para el texto de los datos */
+  margin: 0;
+  font-size: 16px;
+}
+
+.panelDxc label {
+  color: #666; /* Color un poco más claro para las etiquetas */
+}

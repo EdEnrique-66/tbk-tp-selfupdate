@@ -1,0 +1,62 @@
+.panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+/*  flex-direction: column; */
+}
+
+.campo:nth-child(1),
+.campo:nth-child(2),
+.campo:nth-child(3),
+.campo:nth-child(4) 
+{
+  grid-row: 1;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+.campo:nth-child(5) {
+  grid-row: 2;
+  grid-column: 1;
+}
+.campo:nth-child(6) {
+  grid-row: 2;
+  grid-column: 2;
+}
+.campo:nth-child(7) {
+  grid-row: 2;
+  grid-column: 3;
+}
+.campo:nth-child(8) {
+  grid-row: 2;
+  grid-column: 4;
+}
+.campo:nth-child(9) {
+  grid-row: 2;
+  grid-column: 5;
+}
+
+.campo label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.panel p {
+  color: #333; /* Color oscuro para el texto de los datos */
+  margin: 0;
+  font-size: 16px;
+}
+
+.panel label {
+  color: #666; /* Color un poco más claro para las etiquetas */
+}

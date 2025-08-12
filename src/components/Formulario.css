@@ -1,14 +1,41 @@
 /* src/components/Formulario.css */
 .formulario-container {
-  max-width: 800px;
+  max-width: 1500px;
   margin: 40px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.formulario-container input {
+  width: fit-content;
+  border-color:#333;
 }
 
 .formulario-container h2 {
-  text-align: center;
+  text-align: left;
   color: #333;
+  font-size: 1.3em;
+}
+
+.id-solicitante {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+}
+
+.id-solicitante input {
+background-color: rgba(255, 255, 255, 0.87);
+color: #333;
+margin-left: 10px;
+}
+
+.label-id-solicitante {
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;*/
+  font-weight: bold;
+  color: #555;
 }

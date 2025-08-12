@@ -12,3 +12,22 @@
   text-align: center;
   color: #333;
 }
+
+.permisos-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: flex-start; /* Alinea los paneles en la parte superior */
+  margin-top: 20px;
+}
+
+.permisos-container .panel {
+  flex: 1; /* Permite que cada panel ocupe el mismo espacio */
+  max-width: 45%; /* Asegura que no ocupen todo el ancho y deja espacio para el separador */
+}
+
+.separador {
+  width: 2px; /* Grosor del separador */
+  height: 100%; /* Ocupa toda la altura del contenedor */
+  background-color: #ccc;
+}

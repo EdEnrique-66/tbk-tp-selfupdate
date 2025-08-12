@@ -1,0 +1,100 @@
+/* src/components/PanelDxc.css */
+.panel.dxc-panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dxc-panel .dxc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.dxc-panel h3 {
+  color: #333;
+  margin: 0;
+}
+
+.dxc-panel .id-solicitante-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.dxc-panel .id-solicitante-display label {
+  font-weight: bold;
+  color: #555;
+}
+
+.dxc-panel .id-solicitante-display span {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #e3f2fd; /* Usamos un azul claro para destacarlo */
+  color: #333;
+  font-weight: bold;
+}
+
+.dxc-panel .datos-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.dxc-panel .dato-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.dxc-panel .dato-item label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.dxc-panel .dato-item span {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #fce4ec; /* Rosa para DXC */
+  color: #333;
+  min-height: 20px;
+}
+
+.dxc-panel .botones-container {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.dxc-panel .botones-container button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dxc-panel .botones-container button.alta {
+  background-color: #2ecc71;
+}
+
+.dxc-panel .botones-container button.modificar {
+  background-color: #3498db;
+}
+
+.dxc-panel .botones-container button.baja {
+  background-color: #e74c3c;
+}
+
+.dxc-panel .botones-container button.generar {
+  background-color: #9b59b6;
+}

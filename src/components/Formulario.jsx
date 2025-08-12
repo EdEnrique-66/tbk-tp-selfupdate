@@ -26,8 +26,8 @@ const Formulario = () => {
     <div className="formulario-container">
       <h2>self service</h2>
 
-      <div>
-        <label>ID solicitante:</label>
+      <div className="id-solicitante">
+        <label className="label-id-solicitante">ID solicitante:</label>
         <input
           type="text"
           value={idSolicitante}
@@ -40,6 +40,7 @@ const Formulario = () => {
       {userError && <p className="error">Error: {userError}</p>}
       
       {datosUsuario && <PanelInformacionSolicitante datosUsuario={datosUsuario} />}
+      {datosUsuario && <PanelInformacionSolicitanteDxc  datosUsuario={datosUsuario} idSolicitante={idSolicitante} />}
     </div>
   );
 };

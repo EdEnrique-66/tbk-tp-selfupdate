@@ -14,6 +14,12 @@
 
     Encapsulamiento: Desacopla la lógica de tu aplicación de los detalles específicos de los datos, lo que hace que tu código sea más limpio y fácil de leer.
 
+# correr 
+    tener node
+     ejecutar 
+        +    npm install
+        +    npm run dev
+    abrir http://localhost:5173/
 # Test command
     npm run test
 

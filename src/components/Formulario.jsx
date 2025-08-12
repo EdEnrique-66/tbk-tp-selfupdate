@@ -6,6 +6,7 @@ import ApiServiceMock from '../services/ApiServiceMock.js';
 import PanelInformacionSolicitante from './PanelInformacionSolicitante.jsx';
 import PanelGrupos from './PanelGrupos.jsx'; // Nuevo componente
 import PanelMaquinas from './PanelMaquinas.jsx';
+import PanelDXC from './PanelDXC.jsx'
 import './Formulario.css';
 
 // instancia del servicio mock fuera del componente
@@ -41,6 +42,8 @@ const Formulario = () => {
       
       {/* Panel 1: Información del Solicitante */}
       {datosUsuario && <PanelInformacionSolicitante datosUsuario={datosUsuario} empresaClass={empresaClass} />}
+      {datosUsuario && <PanelDXC  empresaClass={empresaClass} />}
+
 
       {/* Panel 2: Listado de Grupos */}
       {datosUsuario && (

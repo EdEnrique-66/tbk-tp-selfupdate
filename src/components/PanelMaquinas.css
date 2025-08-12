@@ -1,0 +1,29 @@
+/* src/components/PanelMaquinas.css */
+.panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.maquina-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #7ee987;
+}
+
+.maquina-item:last-child {
+  border-bottom: none;
+}
+
+.panel h3 {
+  color: #333; /* Color oscuro para el título */
+  margin-bottom: 10px;
+}
+
+.panel p {
+  color: #555; /* Color ligeramente más claro para el texto normal */
+}

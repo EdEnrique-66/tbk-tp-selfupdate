@@ -17,10 +17,9 @@
 # Test command
     npm run test
 
+# Cache
 
 # LIBS+DEPS
 
     - vitest @testing-library/react @vitejs/plugin-react jsdom
         testing
-    
-    

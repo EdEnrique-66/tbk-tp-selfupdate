@@ -58,11 +58,13 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
         <>
           <div className="campoDxc">
             <button className="boton modificar" disabled>Modificar</button>
+          </div>
           
+          <div className="contenedorDatos">
           <BotonModificar />
+          </div>
           <div className="contenedorVolver">
             <button className="boton volver" onClick={() => setBotonSeleccionado(null)}>Volver</button>
-          </div>
           </div>
         </>
       )}
@@ -71,11 +73,12 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
         <>
           <div className="campoDxc">
             <button className="boton baja" disabled>Baja</button>
-          
+          </div>
+          <div className="contenedorDatos">
           <BotonBaja />
+          </div>
           <div className="contenedorVolver">
             <button className="boton volver" onClick={() => setBotonSeleccionado(null)}>Volver</button>
-          </div>
           </div>
         </>
       )}

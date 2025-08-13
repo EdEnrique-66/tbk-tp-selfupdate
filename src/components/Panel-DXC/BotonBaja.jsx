@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './BotonModificar.css';
+import './BotonBaja.css';
 
 const BotonBaja = () => {
   const [id, setId] = useState('');
@@ -58,64 +58,62 @@ const BotonBaja = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Ingrese ID"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
-      />
-      <button onClick={buscarDatos}>Buscar</button>
+      <div className="buscarIdBaja">
+        <input
+          type="text"
+          placeholder="Ingrese ID"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        />
+        <button onClick={buscarDatos} className="boton buscar">Buscar</button>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      </div>
 
       {datos && (
-        <div>
-          {/* <p><strong>Primer Nombre:</strong> {datos.primerNombre}</p>
-          <p><strong>Segundo Nombre:</strong> {datos.segundoNombre}</p>
-          <p><strong>Primer Apellido:</strong> {datos.primerApellido}</p>
-          <p><strong>Segundo Apellido:</strong> {datos.segundoApellido}</p>
-          <p><strong>Rut:</strong> {datos.rut}</p>
-          <p><strong>Empresa:</strong> {datos.empresa}</p>
-          <p><strong>Subtipo:</strong> {datos.subtipo}</p>
-          <p><strong>Correo:</strong> {datos.correo}</p> */}
+        <>
 
-          {/* desde aqui datos ordenado */}
-          <div>
-            <label>Primer Nombre:</label>
-            <p>{datos.primerNombre}</p>
-          </div>
-          <div>
-            <label>Segundo Nombre:</label>
-            <p>{datos.segundoNombre}</p>
-          </div>
-          <div>
-            <label>Primer Apellido:</label>
-            <p>{datos.primerApellido}</p>
-          </div>
-          <div>
-            <label>Segundo Apellido:</label>
-            <p>{datos.segundoApellido}</p>
-          </div>
-          <div>
-            <label>RUT:</label>
-            <p>{datos.rut}</p>
-          </div>
-          <div>
-            <label>Empresa:</label>
-            <p>{datos.empresa}</p>
-          </div>
-          <div>
-            <label>Subtipo:</label>
-            <p>{datos.subtipo}</p>
-          </div>
-          <div>
-            <label>Correo:</label>
-            <p>{datos.correo}</p>
+          <div className="gridDatos">
+            {/* desde aqui datos ordenado */}
+            <div>
+              <label>Primer Nombre:</label>
+              <p>{datos.primerNombre}</p>
+            </div>
+            <div>
+              <label>Segundo Nombre:</label>
+              <p>{datos.segundoNombre}</p>
+            </div>
+            <div>
+              <label>Primer Apellido:</label>
+              <p>{datos.primerApellido}</p>
+            </div>
+            <div>
+              <label>Segundo Apellido:</label>
+              <p>{datos.segundoApellido}</p>
+            </div>
+            <div>
+              <label>RUT:</label>
+              <p>{datos.rut}</p>
+            </div>
+            <div>
+              <label>Empresa:</label>
+              <p>{datos.empresa}</p>
+            </div>
+            <div>
+              <label>Subtipo:</label>
+              <p>{datos.subtipo}</p>
+            </div>
+            <div>
+              <label>Correo:</label>
+              <p>{datos.correo}</p>
+            </div>
+
           </div>
 
           {/* hasta aqui */}
 
-          <div style={{ marginTop: '20px' }}>
+          <div style={{ marginTop: '20px' }} className="fechaBaja">
             <label>
               <strong>Fecha de baja:</strong>{' '}
               <input
@@ -126,7 +124,7 @@ const BotonBaja = () => {
             </label>
           </div>
 
-          <div style={{ marginTop: '10px' }}>
+          <div style={{ marginTop: '10px' }} className="enviarBaja">
 
             <button
               onClick={enviarBaja}
@@ -139,7 +137,8 @@ const BotonBaja = () => {
           </div>
 
           {mensaje && <p style={{ marginTop: '10px' }}>{mensaje}</p>}
-        </div>
+
+        </>
       )}
     </div>
   );

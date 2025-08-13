@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './FormularioAlta.css';
 
@@ -131,7 +130,7 @@ const FormularioAlta = () => {
       />
       {errores.correo && <span>{errores.correo}</span>}
 
-      <button onClick={enviarDatos}>Enviar</button>
+      <button onClick={enviarDatos} className="enviar">Enviar</button>
     </div>
   );
 };

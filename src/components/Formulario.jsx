@@ -41,13 +41,13 @@ const Formulario = () => {
         />
       </div>
 
-      {/* Panel de DXC (siempre visible, con datos combinados) */}
-      <PanelDXC formData={{ ...datosUsuario, idSolicitante, justificacion }} />
-
       {/* Panel de TBK (visible solo al buscar) */}
       {userLoading && <p>Cargando información del solicitante...</p>}
       {userError && <p className="error">Error: {userError}</p>}
       {datosUsuario && <PanelInformacionSolicitante datosUsuario={datosUsuario} empresaClass={empresaClass} />}
+
+        {/* Panel de DXC (siempre visible, con datos combinados) */}
+      <PanelDXC formData={{ ...datosUsuario, idSolicitante, justificacion }} />
       
       {/* Contenedor para los paneles de Grupos y Máquinas (uno al lado del otro) */}
       {datosUsuario && (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './PanelInformacionSolicitanteDxc.css';
-import Boton from './BotonesAccion';
 import FormularioAlta from './FormularioAlta';
 import BotonModificar from './BotonModificar';
 import BotonBaja from './BotonBaja';

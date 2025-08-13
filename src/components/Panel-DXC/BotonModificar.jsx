@@ -34,16 +34,51 @@ const BotonModificar = () => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {datos && (
+        // <div>
+        //   <p><strong>Primer Nombre:</strong> {datos.primerNombre}</p>
+        //   <p><strong>Segundo Nombre:</strong> {datos.segundoNombre}</p>
+        //   <p><strong>Primer Apellido:</strong> {datos.primerApellido}</p>
+        //   <p><strong>Segundo Apellido:</strong> {datos.segundoApellido}</p>
+        //   <p><strong>Rut:</strong> {datos.rut}</p>
+        //   <p><strong>Empresa:</strong> {datos.empresa}</p>
+        //   <p><strong>Subtipo:</strong> {datos.subtipo}</p>
+        //   <p><strong>Correo:</strong> {datos.correo}</p>
+        // </div>
         <div>
-          <p><strong>Primer Nombre:</strong> {datos.primerNombre}</p>
-          <p><strong>Segundo Nombre:</strong> {datos.segundoNombre}</p>
-          <p><strong>Primer Apellido:</strong> {datos.primerApellido}</p>
-          <p><strong>Segundo Apellido:</strong> {datos.segundoApellido}</p>
-          <p><strong>Rut:</strong> {datos.rut}</p>
-          <p><strong>Empresa:</strong> {datos.empresa}</p>
-          <p><strong>Subtipo:</strong> {datos.subtipo}</p>
-          <p><strong>Correo:</strong> {datos.correo}</p>
+          <div>
+            <label>Primer Nombre:</label>
+            <p>{datos.primerNombre}</p>
+          </div>
+          <div>
+            <label>Segundo Nombre:</label>
+            <p>{datos.segundoNombre}</p>
+          </div>
+          <div>
+            <label>Primer Apellido:</label>
+            <p>{datos.primerApellido}</p>
+          </div>
+          <div>
+            <label>Segundo Apellido:</label>
+            <p>{datos.segundoApellido}</p>
+          </div>
+          <div>
+            <label>RUT:</label>
+            <p>{datos.rut}</p>
+          </div>
+          <div>
+            <label>Empresa:</label>
+            <p>{datos.empresa}</p>
+          </div>
+          <div>
+            <label>Subtipo:</label>
+            <p>{datos.subtipo}</p>
+          </div>
+          <div>
+            <label>Correo:</label>
+            <p>{datos.correo}</p>
+          </div>
         </div>
+
       )}
     </div>
   );

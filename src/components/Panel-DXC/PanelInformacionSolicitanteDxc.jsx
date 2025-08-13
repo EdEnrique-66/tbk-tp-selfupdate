@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './PanelInformacionSolicitanteDxc.css';
 import Boton from './BotonesAccion';
 import FormularioAlta from './FormularioAlta';
+import BotonModificar from './BotonModificar';
+import BotonBaja from './BotonBaja';
+
 
 const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
   const [botonSeleccionado, setBotonSeleccionado] = useState(null);
@@ -12,7 +15,7 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
     <div className="panelDxc">
       {botonSeleccionado === null && (
         <>
-          <div className="campoDxc botonAlta">
+          <div className="campoDxc">
             <button
               className="boton alta"
               onClick={() => setBotonSeleccionado('alta')}
@@ -20,7 +23,7 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
               Alta
             </button>
           </div>
-          <div className="campoDxc botonModificar">
+          <div className="campoDxc">
             <button
               className="boton modificar"
               onClick={() => setBotonSeleccionado('modificar')}
@@ -28,7 +31,7 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
               Modificar
             </button>
           </div>
-          <div className="campoDxc botonBaja">
+          <div className="campoDxc">
             <button
               className="boton baja"
               onClick={() => setBotonSeleccionado('baja')}
@@ -41,7 +44,7 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
 
       {botonSeleccionado === 'alta' && (
         <>
-          <div className="campoDxc botonAlta">
+          <div className="campoDxc">
             <button className="boton alta" disabled>Alta</button>
           
             <FormularioAlta />
@@ -54,24 +57,26 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
 
       {botonSeleccionado === 'modificar' && (
         <>
-          <div className="campoDxc botonModificar">
+          <div className="campoDxc">
             <button className="boton modificar" disabled>Modificar</button>
-          </div>
-          <Boton nombre="modificar" tipoAccion="modificar" />
+          
+          <BotonModificar />
           <div className="contenedorVolver">
             <button className="boton volver" onClick={() => setBotonSeleccionado(null)}>Volver</button>
+          </div>
           </div>
         </>
       )}
 
       {botonSeleccionado === 'baja' && (
         <>
-          <div className="campoDxc botonBaja">
+          <div className="campoDxc">
             <button className="boton baja" disabled>Baja</button>
-          </div>
-          <Boton nombre="baja" tipoAccion="baja" />
+          
+          <BotonBaja />
           <div className="contenedorVolver">
             <button className="boton volver" onClick={() => setBotonSeleccionado(null)}>Volver</button>
+          </div>
           </div>
         </>
       )}

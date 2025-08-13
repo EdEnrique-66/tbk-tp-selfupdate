@@ -104,22 +104,21 @@
   color: white;
 }
 
-/* Estilo para botón de traer */
-/* .modificar {
+/* Estilo para botón de modificar */
+.modificar {
   background-color: #2196F3;
   color: white;
-} */
+}
 
-/* Estilo para botón de eliminar */
-/* .baja {
+/* Estilo para botón de baja */
+.baja {
   background-color: #f44336;
   color: white;
-} */
+}
 
 .boton:hover {
   opacity: 0.85;
 }
-
 
 .contenedorVolver {
   grid-column: span 5;

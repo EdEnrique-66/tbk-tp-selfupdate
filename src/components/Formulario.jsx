@@ -5,9 +5,11 @@ import useApiData from '../hooks/useApiData';
 import ApiServiceMock from '../services/ApiServiceMock.js'; 
 import PanelInformacionSolicitante from './Panel-Transbank/PanelInformacionSolicitante.jsx';
 import PanelInformacionSolicitanteDxc from './Panel-DXC/PanelInformacionSolicitanteDxc.jsx';
+import ListarPermisos from './ListadoPermisos/ListarPermisos.jsx';
 import PanelMaquinas from './PanelMaquinas.jsx';
 import PanelGrupos from './PanelGrupos.jsx'; // Nuevo componente
 import './Formulario.css';
+
 
 // instancia del servicio mock fuera del componente
 const apiService = ApiServiceMock;
@@ -21,6 +23,9 @@ const Formulario = () => {
 
   // Determinar la clase CSS según la empresa
   const empresaClass = datosUsuario?.empresa === 'TBK' ? 'tbk' : 'dxc';
+
+  
+  <PanelInformacionSolicitanteDxc idSolicitante={idSolicitante} />
 
   return (
     <div className="formulario-container">
@@ -41,6 +46,7 @@ const Formulario = () => {
       
       {datosUsuario && <PanelInformacionSolicitante datosUsuario={datosUsuario} />}
       {datosUsuario && <PanelInformacionSolicitanteDxc  datosUsuario={datosUsuario} idSolicitante={idSolicitante} />}
+      {datosUsuario && <ListarPermisos  datosUsuario={datosUsuario} idSolicitante={idSolicitante} />}
     </div>
   );
 };

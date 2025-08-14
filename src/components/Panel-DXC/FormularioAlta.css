@@ -1,4 +1,36 @@
+/* .formulario-alta { 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+} */
 
-.formulario-alta {
-  margin-top: 12px; 
+.botonEnviarAlta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+
+.error-mensaje {
+  color: red;
+}
+
+
+.enviar:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+.mensaje-crear {
+  /*revisar porque no cambia el color*/
+  color: #d9534f;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.botonCrearUsuario{
+  background-color: #70cbaf;
+  color: white;
 }

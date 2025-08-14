@@ -3,15 +3,21 @@ import './PanelInformacionSolicitanteDxc.css';
 import FormularioAlta from './FormularioAlta';
 import BotonModificar from './BotonModificar';
 import BotonBaja from './BotonBaja';
+// import idSolicitante from '../Formulario'
 
 
-const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
+const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante} ) => {
   const [botonSeleccionado, setBotonSeleccionado] = useState(null);
 
   if (!datosUsuario) return null;
 
   return (
     <div className="panelDxc">
+
+      <div className="CampoDxc">
+        <p className="idSolicitante">ID Solicitante: {idSolicitante}</p>
+      </div>
+
       {botonSeleccionado === null && (
         <>
           <div className="campoDxc">
@@ -45,11 +51,12 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
         <>
           <div className="campoDxc">
             <button className="boton alta" disabled>Alta</button>
-          
+          </div>
+          <div className="contenedorDatos">
             <FormularioAlta />
-            <div className="contenedorVolver">
+          </div>
+          <div className="contenedorVolver">
             <button className="boton volver" onClick={() => setBotonSeleccionado(null)}>Volver</button>
-            </div>
           </div>
         </>
       )}
@@ -59,9 +66,9 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
           <div className="campoDxc">
             <button className="boton modificar" disabled>Modificar</button>
           </div>
-          
+
           <div className="contenedorDatos">
-          <BotonModificar />
+            <BotonModificar />
           </div>
           <div className="contenedorVolver">
             <button className="boton volver" onClick={() => setBotonSeleccionado(null)}>Volver</button>
@@ -75,7 +82,7 @@ const PanelInformacionSolicitanteDxc = ({ datosUsuario, idSolicitante }) => {
             <button className="boton baja" disabled>Baja</button>
           </div>
           <div className="contenedorDatos">
-          <BotonBaja />
+            <BotonBaja />
           </div>
           <div className="contenedorVolver">
             <button className="boton volver" onClick={() => setBotonSeleccionado(null)}>Volver</button>

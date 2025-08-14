@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FormularioAlta.css';
 
 const FormularioAlta = () => {
@@ -12,127 +12,121 @@ const FormularioAlta = () => {
     subtipo: '',
     correo: ''
   });
+
   const [errores, setErrores] = useState({});
+  const [botonDeshabilitado, setBotonDeshabilitado] = useState(true);
+  const [modoCrear, setModoCrear] = useState(false);
+
+  useEffect(() => {
+    const todosCompletos = Object.values(formData).every(val => val.trim() !== '');
+    const sinErrores = Object.keys(errores).length === 0;
+    setBotonDeshabilitado(!(todosCompletos));
+  }, [formData, errores]);
 
   const validar = () => {
     const nuevosErrores = {};
-    if (!/^[a-zA-Z]+$/.test(formData.primerNombre)) {
-      nuevosErrores.primerNombre = 'El primer nombre debe contener solo letras';
-    }
-    if (!/^[a-zA-Z]+$/.test(formData.segundoNombre)) {
-      nuevosErrores.segundoNombre = 'El segundo nombre debe contener solo letras';
-    }
-    if (!/^[a-zA-Z]+$/.test(formData.primerApellido)) {
-      nuevosErrores.primerApellido = 'El primer apellido debe contener solo letras';
-    }
-    if (!/^[a-zA-Z]+$/.test(formData.segundoApellido)) {
-      nuevosErrores.segundoApellido = 'El segundo apellido debe contener solo letras';
-    }
-    /*Corregir esto para dar formato al rut*/
-    if (!/^\d+$/.test(formData.rut)) {
-      nuevosErrores.rut = 'El rut debe contener solo números';
-    }
-    if (!/^[a-zA-Z]+$/.test(formData.empresa)) {
-      nuevosErrores.empresa = 'La empresa debe contener solo letras';
-    }
-    if (!/^[a-zA-Z]+$/.test(formData.subtipo)) {
-      nuevosErrores.subtipo = 'El subtipo debe contener solo letras';
-    }
-    if (!/^\S+@\S+\.\S+$/.test(formData.correo)) {
-      nuevosErrores.correo = 'El correo electrónico no es válido';
-    }
+    const soloLetras = /^[a-zA-Z]+$/;
+    if (!soloLetras.test(formData.primerNombre)) nuevosErrores.primerNombre = 'Solo letras';
+    if (!soloLetras.test(formData.segundoNombre)) nuevosErrores.segundoNombre = 'Solo letras';
+    if (!soloLetras.test(formData.primerApellido)) nuevosErrores.primerApellido = 'Solo letras';
+    if (!soloLetras.test(formData.segundoApellido)) nuevosErrores.segundoApellido = 'Solo letras';
+    /*FALTA LA VALIDACIÓN DE RUT*/
+    if (!soloLetras.test(formData.empresa)) nuevosErrores.empresa = 'Solo letras';
+    if (!soloLetras.test(formData.subtipo)) nuevosErrores.subtipo = 'Solo letras';
+    if (!/^\S+@\S+\.\S+$/.test(formData.correo)) nuevosErrores.correo = 'Correo inválido';
     setErrores(nuevosErrores);
     return Object.keys(nuevosErrores).length === 0;
   };
 
-  const enviarDatos = () => {
+  const enviarDatos = async () => {
     if (!validar()) return;
 
-    fetch('https://tu-api.com/endpoint', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    })
-      .then(res => res.json())
-      .then(data => {
-        alert('Datos enviados correctamente');
-        setFormData({ primerNombre: '',segundoNombre: '', primerApellido: '', segundoApellido: '', rut: '', empresa: '', subtipo: '', correo: '' });
-      })
-      .catch(err => {
-        console.error(err);
-        alert('Error al enviar los datos');
+    try {
+      const response = await fetch('https://aec6cb53-810c-4ee4-ba94-f2d2751ff6ab.mock.pstmn.io/users/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
+
+      if (response.status === 200) {
+        alert('El usuario ya existe');
+      } else if (response.status === 404) {
+        setModoCrear(true);
+      } else {
+        alert('Error inesperado');
+      }
+    } catch (error) {
+      console.error('Error al verificar usuario:', error);
+    }
+  };
+
+  const crearUsuario = async () => {
+    try {
+      const response = await fetch('https://aec6cb53-810c-4ee4-ba94-f2d2751ff6ab.mock.pstmn.io/users/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('Usuario creado exitosamente');
+        setFormData({
+          primerNombre: '',
+          segundoNombre: '',
+          primerApellido: '',
+          segundoApellido: '',
+          rut: '',
+          empresa: '',
+          subtipo: '',
+          correo: ''
+        });
+        setModoCrear(false);
+      } else {
+        alert('Error al crear usuario');
+      }
+    } catch (error) {
+      console.error('Error al crear usuario:', error);
+    }
+  };
+
+  const handleSubmit = () => {
+    if (modoCrear) {
+      crearUsuario();
+    } else {
+      enviarDatos();
+    }
   };
 
   return (
     <div className="formulario-alta">
-      <input
-        type="text"
-        placeholder="Primer Nombre"
-        value={formData.primerNombre}
-        onChange={e => setFormData({ ...formData, primerNombre: e.target.value })}
-      />
-      {errores.primerNombre && <span>{errores.primerNombre}</span>}
+      {Object.keys(formData).map((campo) => (
+        <div key={campo} className="formulario-alta">
+          <input
+            type={campo === 'correo' ? 'email' : 'text'}
+            placeholder={campo.charAt(0).toUpperCase() + campo.slice(1)}
+            value={formData[campo]}
+            onChange={e => setFormData({ ...formData, [campo]: e.target.value })}
+          />
+          {errores[campo] && <span className="error-mensaje">{errores[campo]}</span>}
+        </div>
+      ))}
 
-      <input
-        type="text"
-        placeholder="Segundo Nombre"
-        value={formData.segundoNombre}
-        onChange={e => setFormData({ ...formData, segundoNombre: e.target.value })}
-      />
-      {errores.segundoNombre && <span>{errores.segundoNombre}</span>}
+      <div className="botonEnviarAlta">
+        {modoCrear && (
+          <p className="mensaje-crear">Usuario no encontrado.</p>
+        )}
+        <button
+          onClick={handleSubmit}
+          className={`enviar ${modoCrear ? 'botonCrearUsuario' : ''}`}
+          disabled={botonDeshabilitado}
+        >
+          {modoCrear ? 'Crear en EntraID' : 'Enviar'}
+        </button>
+      </div>
 
-      <input
-        type="text"
-        placeholder="Primer Apellido"
-        value={formData.primerApellido}
-        onChange={e => setFormData({ ...formData, primerApellido: e.target.value })}
-      />
-      {errores.primerApellido && <span>{errores.primerApellido}</span>}
-
-      <input
-        type="text"
-        placeholder="Segundo Apellido"
-        value={formData.segundoApellido}
-        onChange={e => setFormData({ ...formData, segundoApellido: e.target.value })}
-      />
-      {errores.segundoApellido && <span>{errores.segundoApellido}</span>}
-
-      <input
-        type="text"
-        placeholder="Rut"
-        value={formData.rut}
-        onChange={e => setFormData({ ...formData, rut: e.target.value })}
-      />
-      {errores.rut && <span>{errores.rut}</span>}
-
-      <input
-        type="text"
-        placeholder="Empresa"
-        value={formData.empresa}
-        onChange={e => setFormData({ ...formData, empresa: e.target.value })}
-      />
-      {errores.empresa && <span>{errores.empresa}</span>}
-
-      <input
-        type="text"
-        placeholder="Subtipo"
-        value={formData.subtipo}
-        onChange={e => setFormData({ ...formData, subtipo: e.target.value })}
-      />
-      {errores.empresa && <span>{errores.subtipo}</span>}
-
-      <input
-        type="email"
-        placeholder="Correo Electrónico"
-        value={formData.correo}
-        onChange={e => setFormData({ ...formData, correo: e.target.value })}
-      />
-      {errores.correo && <span>{errores.correo}</span>}
-
-      <button onClick={enviarDatos} className="enviar">Enviar</button>
     </div>
   );
 };
 
 export default FormularioAlta;
+

@@ -5,10 +5,18 @@ const BotonBaja = () => {
   const [id, setId] = useState('');
   const [datos, setDatos] = useState(null);
   const [error, setError] = useState(null);
-  const [fechaBaja, setFechaBaja] = useState('');
-  const [mensaje, setMensaje] = useState('');
-  const [enviado, setEnviado] = useState(false); // Nuevo estado
 
+  const [fechaBaja, setFechaBaja] = useState(() => {
+    const hoy = new Date();
+    const yyyy = hoy.getFullYear();
+    const mm = String(hoy.getMonth() + 1).padStart(2, '0');
+    const dd = String(hoy.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  });
+
+  const [mensaje, setMensaje] = useState('');
+  const [enviado, setEnviado] = useState(false);
+  
   const buscarDatos = async () => {
     if (!id) {
       setError('Debe ingresar un ID');
@@ -49,7 +57,8 @@ const BotonBaja = () => {
 
       if (!respuesta.ok) throw new Error('Error al enviar la baja');
 
-      setMensaje('Fecha de baja enviada correctamente.');
+      alert ("Usuario dado de baja")
+
       setEnviado(true); // Desactiva el botón
     } catch (err) {
       setMensaje(`Error: ${err.message}`);
@@ -140,6 +149,7 @@ const BotonBaja = () => {
 
         </>
       )}
+
     </div>
   );
 };

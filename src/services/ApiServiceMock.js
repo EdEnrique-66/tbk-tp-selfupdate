@@ -14,17 +14,6 @@ const mockDataTBK = {
     fechaBaja: "20/05/2030",
     equipo: "SRE",
     seHeredaDelHost: true,
-
-    primerNombreDxc: "Pedro",
-    segundoNombreDxc: "Pablo",
-    primerApellidoDxc: "Veliz",
-    segundoApellidoDxc: "Guerrero",
-    rutDxc: "17.671.981-9",
-    empresaDxc: "DXC",
-    subtipoDxc: "DXC",
-    correoDxc: "pedro.v.guerrero@dxc.com",
-    fechaBajaDxc: "20/05/2030",
-
   },
   listadoDePermisos: {
     grupos: [{ id: 1, nombre: "R-SRE-PLATAFORMA" }],
@@ -34,19 +23,7 @@ const mockDataTBK = {
 
 // Datos simulados para el caso "DXC" (solo los campos que se traerán de forma asíncrona)
 const mockDataDXC = {
-  informacionSolicitante: {
-
-    /*datos mock para modificar y baja*/
-    primerNombreDxc: "Adrian",
-    segundoNombreDxc: "Francisco",
-    primerApellidoDxc: "Orellana",
-    segundoApellidoDxc: "Orellana",
-    rutDxc: "19.671.981-9",
-
-    empresa: "DXC",
-    subtipo: "DXC",
-    fechaBaja: "20/05/2030",
-  },
+  
   listadoDePermisos: {
     grupos: [
       { id: 2, nombre: "R-SRE-PLATAFORMA" },

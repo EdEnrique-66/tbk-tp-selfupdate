@@ -1,0 +1,36 @@
+.panelPermisos {
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+
+}
+
+.columnaPermisos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.casillaPermisos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tituloPanelPermisos {
+  
+  display: flex;
+  flex-direction: column;
+
+}

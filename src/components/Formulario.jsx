@@ -1,76 +1,52 @@
+// src/components/Formulario.jsx
 import React, { useState } from 'react';
 import useApiData from '../hooks/useApiData';
-// mock
+// Importamos el servicio mock
 import ApiServiceMock from '../services/ApiServiceMock.js'; 
-import PanelInformacionSolicitante from './PanelInformacionSolicitante.jsx';
-import PanelGrupos from './PanelGrupos.jsx'; // Nuevo componente
+import PanelInformacionSolicitante from './Panel-Transbank/PanelInformacionSolicitante.jsx';
+import PanelInformacionSolicitanteDxc from './Panel-DXC/PanelInformacionSolicitanteDxc.jsx';
+import ListarPermisos from './ListadoPermisos/ListarPermisos.jsx';
 import PanelMaquinas from './PanelMaquinas.jsx';
-import PanelDXC from './PanelDXC.jsx'
-import Justificacion from './Justificacion.jsx';
+import PanelGrupos from './PanelGrupos.jsx'; // Nuevo componente
 import './Formulario.css';
+
 
 // instancia del servicio mock fuera del componente
 const apiService = ApiServiceMock;
 
 const Formulario = () => {
   const [idSolicitante, setIdSolicitante] = useState('');
-  const [justificacion, setJustificacion] = useState('');
 
-  // Lógica para determinar si se debe hacer la llamada a la API
-  const shouldFetch = idSolicitante !== '';
-
-  const { data: datosUsuario, loading: userLoading, error: userError } = useApiData(apiService.fetchUsuario, shouldFetch ? idSolicitante : null);
-  const { data: datosGrupos, loading: gruposLoading, error: gruposError } = useApiData(apiService.fetchGrupos, shouldFetch ? idSolicitante : null);
-  const { data: datosMaquinas, loading: maquinasLoading, error: maquinasError } = useApiData(apiService.fetchMaquinas, shouldFetch ? idSolicitante : null);
+  const { data: datosUsuario, loading: userLoading, error: userError } = useApiData(apiService.fetchUsuario, idSolicitante);
+  const { data: datosGrupos, loading: gruposLoading, error: gruposError } = useApiData(apiService.fetchGrupos, idSolicitante);
+  const { data: datosMaquinas, loading: maquinasLoading, error: maquinasError } = useApiData(apiService.fetchMaquinas, idSolicitante);
 
   // Determinar la clase CSS según la empresa
   const empresaClass = datosUsuario?.empresa === 'TBK' ? 'tbk' : 'dxc';
+
+  
+  <PanelInformacionSolicitanteDxc idSolicitante={idSolicitante} />
 
   return (
     <div className="formulario-container">
       <h2>self service</h2>
 
-      {/* Campo de entrada para el ID del solicitante */}
-      <div>
-        <label>ID solicitante:</label>
+      <div className="id-solicitante">
+        <label className="label-id-solicitante">ID solicitante:</label>
         <input
           type="text"
           value={idSolicitante}
           onChange={(e) => setIdSolicitante(e.target.value)}
-          placeholder="Ingresa TBK o DXC"
+          placeholder="Ingresa un ID"
         />
       </div>
 
-      {/* Panel de TBK (visible solo al buscar) */}
       {userLoading && <p>Cargando información del solicitante...</p>}
       {userError && <p className="error">Error: {userError}</p>}
-      {datosUsuario && <PanelInformacionSolicitante datosUsuario={datosUsuario} empresaClass={empresaClass} />}
-
-        {/* Panel de DXC (siempre visible, con datos combinados) */}
-      <PanelDXC formData={{ ...datosUsuario, idSolicitante, justificacion }} />
       
-      {/* Contenedor para los paneles de Grupos y Máquinas (uno al lado del otro) */}
-      {datosUsuario && (
-        <>
-          <div className="permisos-container">
-            {/* Panel de Grupos */}
-            {gruposLoading && <p>Cargando listado de grupos...</p>}
-            {gruposError && <p className="error">Error: {gruposError}</p>}
-            {datosGrupos && <PanelGrupos grupos={datosGrupos} />}
-            
-            {/* Separador */}
-            <div className="separador"></div>
-            
-            {/* Panel de Máquinas */}
-            {maquinasLoading && <p>Cargando listado de máquinas...</p>}
-            {maquinasError && <p className="error">Error: {maquinasError}</p>}
-            {datosMaquinas && <PanelMaquinas maquinas={datosMaquinas} equipo={datosUsuario.equipo} />}
-          </div>
-
-          {/* Panel de Justificación */}
-          <Justificacion justificacion={justificacion} setJustificacion={setJustificacion} />
-        </>
-      )}
+      {datosUsuario && <PanelInformacionSolicitante datosUsuario={datosUsuario} />}
+      {datosUsuario && <PanelInformacionSolicitanteDxc  datosUsuario={datosUsuario} idSolicitante={idSolicitante} />}
+      {datosUsuario && <ListarPermisos  datosUsuario={datosUsuario} idSolicitante={idSolicitante} />}
     </div>
   );
 };

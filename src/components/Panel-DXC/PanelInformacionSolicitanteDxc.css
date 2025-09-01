@@ -1,0 +1,174 @@
+.panelDxc {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+ .campoDxc {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.campoDxc:nth-child(1)
+{/*id solicitante*/
+  grid-row: 1;
+  grid-column: span 1; 
+}
+
+.campoDxc:nth-child(2)
+{/*boton alta*/
+  grid-row: 2;
+  grid-column: span 1; 
+}
+
+.campoDxc:nth-child(3)  
+{/*boton modificar*/
+  grid-row: 2;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+.campoDxc:nth-child(4)  
+{/*boton baja*/
+  grid-row: 2;
+  grid-column: span 1; /* cada uno ocupa una columna */
+}
+
+/* .campoDxc:nth-child(4)  
+{ 
+  grid-row: 1;
+  grid-column: span 1; 
+}
+
+.campoDxc:nth-child(5),
+.campoDxc:nth-child(6),
+.campoDxc:nth-child(7),
+.campoDxc:nth-child(8)  
+{
+  grid-row: 2;
+  grid-column: span 1; 
+}
+
+.campoDxc:nth-child(9),
+.campoDxc:nth-child(10),
+.campoDxc:nth-child(11),
+.campoDxc:nth-child(12),
+.campoDxc:nth-child(13)
+{
+  grid-row: 3;
+  grid-column: span 1; 
+} */
+
+.campoDxc label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.panelDxc p {
+  color: #333; /* Color oscuro para el texto de los datos */
+  margin: 0;
+  font-size: 16px;
+}
+
+.panelDxc label {
+  color: #666; /* Color un poco más claro para las etiquetas */
+}
+
+
+.formularioAlta input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.boton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Estilo para botón de alta */
+ .alta {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Estilo para botón de modificar */
+.modificar {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Estilo para botón de baja */
+.baja {
+  background-color: #f44336;
+  color: white;
+}
+
+.boton:hover {
+  opacity: 0.85;
+}
+
+.contenedorVolver {
+  grid-column: span 5;
+  display: flex;
+  justify-content: left; /* Puedes usar 'flex-end' para alinearlo a la derecha */
+  margin-top: 20px;
+}
+
+.boton.volver {
+  background-color: #0068e0;;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* .boton.activo {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+} */
+
+.boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+ .buscar {
+  background-color: #0068e0;
+  color: white;
+}
+
+.enviar {
+  background-color: #0068e0;
+  color: white;
+}
+
+
+.contenedorDatos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  grid-column: span 5;
+}
+
+/* .contenedorDatos .gridDatos {
+  display: contents; 
+} */

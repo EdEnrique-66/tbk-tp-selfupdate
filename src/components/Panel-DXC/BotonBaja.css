@@ -1,0 +1,17 @@
+.buscarIdBaja {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fechaBaja {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.buscarBaja {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

@@ -10,13 +10,7 @@ const PanelGrupos = ({ grupos }) => {
       <div className="grupos-container">
         {grupos.map(grupo => (
           <div key={grupo.id} className="grupo-item">
-            <label>
-              <input
-                type="checkbox"
-                enabled
-              />
-              <p>{grupo.nombre}</p>
-            </label>
+            <p>{grupo.nombre}</p>
           </div>
         ))}
       </div>
